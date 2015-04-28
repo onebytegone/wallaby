@@ -50,7 +50,9 @@ def moveFiles(rootPath, files, live):
       newPath = buildNewPath(rootPath, gmtime(getmtime(path)), basename(path))
       print newPath + " <-------- " + path
 
-      if live:
+      if exists(newPath):
+         print "File already exists for source of: " + path;
+      elif live:
          directory = dirname(newPath)
          if not exists(directory):
             makedirs(directory)

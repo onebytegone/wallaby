@@ -59,7 +59,7 @@ def moveFiles(rootPath, files, live):
          shutil.move(path, newPath)
 
 def buildNewPath(rootPath, time, filename):
-   return join(baseFolder(time), dateFolder(time), filename)
+   return join(rootPath, join(baseFolder(time), dateFolder(time), filename))
 
 def baseFolder(time):
    return strftime('%Y', time)

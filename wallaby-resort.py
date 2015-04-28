@@ -12,6 +12,7 @@ import argparse
 from os import listdir, makedirs
 from os.path import isdir, join, getmtime, basename, exists, dirname
 from time import ctime, strftime, gmtime
+import shutil
 
 
 parser = argparse.ArgumentParser()
@@ -51,8 +52,8 @@ def moveFiles(rootPath, files, live):
 
       if live:
          directory = dirname(newPath)
-         if not os.path.exists(directory):
-            os.makedirs(directory)
+         if not exists(directory):
+            makedirs(directory)
          shutil.move(path, newPath)
 
 def buildNewPath(rootPath, time, filename):
